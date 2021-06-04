@@ -4,13 +4,13 @@ const cookieParser = require('cookie-parser');
 const authRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
 
-const app = express();
+const app = express(); //Initialize express
 
-app.use(express.json());
+app.use(express.json()); //body parser
 app.use(express.static('../frontend'));
-app.use(cookieParser());
+app.use(cookieParser()); // cookie 
 
-app.use('/api/auth', authRouter);
+app.use('/api/auth', authRouter);//mounting the routers
 app.use('/api/user', userRouter);
 
 app.listen(8000, () => {
